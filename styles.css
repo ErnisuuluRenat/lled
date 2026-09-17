@@ -982,40 +982,52 @@ input::placeholder { color: var(--text-mono-1); }
 }
 .contact-card p { color: var(--text-muted-1); font-size: 15px; }
 
+.map-caption {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.map-caption p { font-size: 15px; color: var(--text); }
+
 .map-outlet {
   position: relative;
   height: clamp(240px, 34vw, 360px);
   border-radius: 24px;
   border: 1px solid var(--border);
   background-color: var(--bg-raised);
-  background-image:
-    linear-gradient(rgba(247, 148, 29, .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(247, 148, 29, .05) 1px, transparent 1px);
-  background-size: 44px 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
-.map-outlet__label {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 1.5px;
-  color: var(--text-mono-1);
-  text-align: center;
-  padding: 20px;
-  line-height: 1.9;
+.map-outlet .leaflet-tile-pane {
+  filter: grayscale(1) invert(1) brightness(.92) contrast(.9);
 }
+.map-outlet .leaflet-control-attribution {
+  background: rgba(38, 39, 42, .85);
+  color: var(--text-muted-1);
+}
+.map-outlet .leaflet-control-attribution a { color: var(--text-muted-1); }
+.map-outlet .leaflet-control-zoom a {
+  background: var(--bg-raised);
+  color: var(--text);
+  border-color: var(--border) !important;
+}
+.map-outlet .leaflet-control-zoom a:hover { background: #202124; }
 .map-outlet__pin {
-  position: absolute;
-  left: 50%; top: 50%;
   width: 14px; height: 14px;
-  margin: -7px 0 0 -7px;
   border-radius: 50%;
   background: var(--orange);
   box-shadow: 0 0 0 8px rgba(247, 148, 29, .14), 0 0 24px var(--orange);
   animation: lledPulse 2.6s ease-in-out infinite;
 }
+.map-outlet .leaflet-popup-content-wrapper {
+  background: var(--bg-raised);
+  color: var(--text);
+  border-radius: 12px;
+}
+.map-outlet .leaflet-popup-content { font-family: var(--font-body); font-size: 14px; margin: 10px 14px; }
+.map-outlet .leaflet-popup-tip { background: var(--bg-raised); }
 
 /* ==========================================================================
    Footer

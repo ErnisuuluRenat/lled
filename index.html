@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -445,11 +446,14 @@
         </a>
       </div>
 
-      <!-- Replace this outlet's contents with a real 2GIS or Google Maps iframe (width:100%;height:100%;border:0), keep the wrapper. -->
-      <div class="map-outlet" id="map-outlet" data-reveal="2">
-        <span class="map-outlet__label">MAP OUTLET — #map-outlet<br>2GIS / GOOGLE MAPS IFRAME</span>
-        <div class="map-outlet__pin" aria-hidden="true"></div>
+      <div class="map-caption" data-reveal="2">
+        <div>
+          <div class="contact-card__label">АДРЕС</div>
+          <p>ул. Анкара, 10Б, Бишкек</p>
+        </div>
+        <a href="https://go.2gis.com/0y2NX" class="mono-link" target="_blank" rel="noopener">Открыть в 2ГИС →</a>
       </div>
+      <div class="map-outlet" id="map-outlet" data-reveal="2" data-lat="42.855389" data-lng="74.657709" role="application" aria-label="Карта: улица Анкара, 10Б, Бишкек"></div>
     </div>
   </section>
 
@@ -498,7 +502,7 @@
 
       <div>
         <div class="footer-label">АДРЕС</div>
-        <p class="footer-address">Бишкек, Кыргызстан</p>
+        <p class="footer-address">ул. Анкара, 10Б, Бишкек</p>
         <p class="footer-hours">Ежедневно, 09:00 — 21:00</p>
         <div class="footer-icons">
           <a href="https://wa.me/996999990111" aria-label="WhatsApp" target="_blank" rel="noopener">
@@ -521,6 +525,7 @@
   </div>
 </footer>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="script.js"></script>
 </body>
 </html>

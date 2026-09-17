@@ -198,4 +198,38 @@
     formError.hidden = true;
     formError.textContent = "";
   }
+
+  /* ------------------------------------------------------------------ */
+  /* Map — Leaflet, address: ул. Анкара, 10Б, Бишкек                     */
+  /* ------------------------------------------------------------------ */
+  const mapOutlet = document.getElementById("map-outlet");
+  if (mapOutlet && window.L) {
+    const lat = parseFloat(mapOutlet.dataset.lat);
+    const lng = parseFloat(mapOutlet.dataset.lng);
+
+    const map = L.map(mapOutlet, {
+      center: [lat, lng],
+      zoom: 16,
+      scrollWheelZoom: false
+    });
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    const pinIcon = L.divIcon({
+      className: "map-outlet__pin",
+      iconSize: [14, 14],
+      iconAnchor: [7, 7]
+    });
+
+    L.marker([lat, lng], { icon: pinIcon })
+      .addTo(map)
+      .bindPopup("LLED.KG — ул. Анкара, 10Б")
+      .openPopup();
+
+    mapOutlet.addEventListener("click", () => map.scrollWheelZoom.enable(), { once: true });
+    mapOutlet.addEventListener("mouseleave", () => map.scrollWheelZoom.disable());
+  }
 })();
